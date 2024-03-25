@@ -13,6 +13,7 @@ import com.youtube.jwt.util.reclamation.ReclamationRepository;
 import com.youtube.jwt.util.reclamation.StateEstablishmentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 
 @Service
 public class ReclamationService {
@@ -27,14 +28,12 @@ public class ReclamationService {
     private ActionRepository actionRepository;
     // StateEstablishment
 
-    public ReclamationEntity createReclamation(Long stateEstablishmentId, ReclamationEntity reclamation) {
-        StateEstablishment stateEstablishment = stateEstablishmentRepository.findById(stateEstablishmentId)
-                .orElseThrow(() -> new EntityNotFoundException("State Establishment not found"));
-
-        reclamation.setStateEstablishment(stateEstablishment);
+    public List<ReclamationEntity> createReclamation(ReclamationEntity reclamation) {
 
         // Add additional validation or logic if needed before saving
-        return reclamationRepository.save(reclamation);
+        reclamationRepository.save(reclamation);
+        return reclamationRepository.findAll();
+
     }
 
     public ReclamationEntity addActionToReclamation(Long reclamationId, ActionEntity action) {
@@ -56,5 +55,26 @@ public class ReclamationService {
         List<ActionEntity> actions = reclamation.getActionEntities();
         actions.removeIf(action -> action.getId().equals(actionId));
         return reclamationRepository.save(reclamation);
+    }
+
+    public List<ReclamationEntity> getAll() {
+        return reclamationRepository.findAll();
+    }
+
+    public ReclamationEntity updateReclamation(Long reclamationId, ReclamationEntity newReclamation) {
+        // Retrieve the existing reclamation entity from the database
+        ReclamationEntity existingReclamation = reclamationRepository.findById(reclamationId)
+                .orElseThrow(() -> new IllegalArgumentException("Reclamation not found for id: " + reclamationId));
+
+        // Update the existing entity with the new data
+        existingReclamation.setName(newReclamation.getName());
+        existingReclamation.setDescription(newReclamation.getDescription());
+        existingReclamation.setDateCreation(newReclamation.getDateCreation());
+        existingReclamation.setDateUpdate(newReclamation.getDateUpdate());
+        existingReclamation.setDateClosure(newReclamation.getDateClosure());
+        existingReclamation.setState(newReclamation.getState());
+
+        // Save the updated entity to the database
+        return reclamationRepository.save(existingReclamation);
     }
 }

@@ -10,8 +10,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.youtube.jwt.entity.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,27 +45,15 @@ public class ReclamationEntity {
     private Date dateUpdate;
     private Date dateClosure;
 
-    @NotNull(message = "State is required")
     @Enumerated(EnumType.STRING)
     private StateReclamation state;
 
-    @Column(nullable = false)
-    private int year;
+    @ManyToOne(fetch = FetchType.LAZY) // Many Reclamations can belong to one User
+    @JoinColumn(name = "user_name", referencedColumnName = "userName") // Define the foreign key column
+    private User user; // Define the User entity relationship
 
-    public void setYear(int year) {
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        if (year >= 2023 && year <= currentYear) {
-            this.year = year;
-        } else {
-            throw new IllegalArgumentException("Year should be between 2023 and the current year.");
-        }
-    }
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "state_establishment_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private StateEstablishment stateEstablishment;
+    @Transient // Exclude from database mapping
+    private MultipartFile file; // Field for file upload
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reclamationEntity")
     private List<ActionEntity> actionEntities;

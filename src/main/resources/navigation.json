@@ -8,20 +8,6 @@
       "icon": "heroicons_outline:home",
       "children": [
         {
-          "id": "data_management.home",
-          "title": "Programs",
-          "type": "basic",
-          "icon": "heroi(cons_outline:clipboard-document-check",
-          "link": ""
-        },
-        {
-          "id": "data_management.programs",
-          "title": "Programs",
-          "type": "basic",
-          "icon": "heroicons_outline:clipboard-document-check",
-          "link": "/dashboards/program"
-        },
-        {
           "id": "data_management.users",
           "title": "Users",
           "type": "basic",
@@ -32,8 +18,15 @@
           "id": "data_management.role",
           "title": "role",
           "type": "basic",
-          "icon": "heroicons_outline:user",
+          "icon": "heroicons_outline:briefcase",
           "link": "/dashboards/role"
+        },
+        {
+          "id": "data_management.claim",
+          "title": "claim",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/claim"
         }
       ]
     }
@@ -50,7 +43,7 @@
           "id": "pages.home",
           "title": "Home",
           "type": "basic",
-          "icon": "heroicons_outline:user-circle",
+          "icon": "heroicons_outline:home",
           "link": "/dashboards/home"
         }
       ]
@@ -79,25 +72,25 @@
       "icon": "heroicons_outline:home",
       "children": [
         {
-          "id": "data_management.programs",
-          "title": "Programs",
-          "type": "basic",
-          "icon": "heroicons_outline:clipboard-document-check",
-          "link": "/dashboards/program"
-        },
-        {
           "id": "data_management.users",
           "title": "Users",
           "type": "basic",
-          "icon": "heroicons_outline:rocket-launch",
+          "icon": "heroicons_outline:users",
           "link": "/dashboards/users"
         },
         {
           "id": "data_management.role",
           "title": "role",
           "type": "basic",
-          "icon": "heroicons_outline:user",
+          "icon": "heroicons_outline:briefcase",
           "link": "/dashboards/role"
+        },
+        {
+          "id": "data_management.claim",
+          "title": "claim",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/claim"
         }
       ],
       "roles": ["admin"]
@@ -109,13 +102,6 @@
       "title": "DATA MANAGEMENT",
       "type": "group",
       "children": [
-        {
-          "id": "data_management.programs",
-          "title": "Programs",
-          "type": "basic",
-          "icon": "heroicons_outline:clipboard-document-check",
-          "link": "/dashboards/program"
-        },
         {
           "id": "data_management.start_up",
           "title": "start_ups",
@@ -190,8 +176,15 @@
           "id": "data_management.role",
           "title": "role",
           "type": "basic",
-          "icon": "heroicons_outline:user",
+          "icon": "heroicons_outline:briefcase",
           "link": "/dashboards/role"
+        },
+        {
+          "id": "data_management.claim",
+          "title": "claim",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/claim"
         },
         {
           "id": "data_management.startupStaff",
@@ -1242,26 +1235,18 @@
           "disabled": true
         },
         {
-      
-      
           "icon": "heroicons_outline:tag",
           "type": "basic"
         },
         {
-      
-      
           "icon": "heroicons_outline:tag",
           "type": "basic"
         },
         {
-      
-      
           "icon": "heroicons_outline:tag",
           "type": "basic"
         },
         {
-      
-      
           "icon": "heroicons_outline:tag",
           "type": "basic"
         },
@@ -1281,13 +1266,6 @@
       "type": "group",
       "icon": "heroicons_outline:home",
       "children": [
-        {
-          "id": "data_management.programs",
-          "title": "Programs",
-          "type": "basic",
-          "icon": "heroicons_outline:clipboard-document-check",
-          "link": "/dashboards/program"
-        },
         {
           "id": "data_management.start_up",
           "title": "start_ups",
@@ -1362,8 +1340,15 @@
           "id": "data_management.role",
           "title": "role",
           "type": "basic",
-          "icon": "heroicons_outline:user",
+          "icon": "heroicons_outline:briefcase",
           "link": "/dashboards/role"
+        },
+        {
+          "id": "data_management.claim",
+          "title": "claim",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/claim"
         },
         {
           "id": "data_management.startupStaff",
@@ -2410,26 +2395,18 @@
           "disabled": true
         },
         {
-      
-      
           "icon": "heroicons_outline:tag",
           "type": "basic"
         },
         {
-      
-      
           "icon": "heroicons_outline:tag",
           "type": "basic"
         },
         {
-      
-      
           "icon": "heroicons_outline:tag",
           "type": "basic"
         },
         {
-      
-      
           "icon": "heroicons_outline:tag",
           "type": "basic"
         },

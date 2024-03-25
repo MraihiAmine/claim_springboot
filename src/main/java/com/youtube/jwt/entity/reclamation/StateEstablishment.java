@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 @Table(name = "state_establishments")
 @Data
-@EqualsAndHashCode(exclude = "reclamationEntities")
 public class StateEstablishment {
 
     @Id
@@ -25,8 +24,5 @@ public class StateEstablishment {
 
     @Column(name = "city")
     private String city;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "stateEstablishment")
-    private List<ReclamationEntity> reclamationEntities;
     // Constructors, getters, setters
 }

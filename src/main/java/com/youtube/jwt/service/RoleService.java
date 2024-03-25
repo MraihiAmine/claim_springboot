@@ -5,6 +5,7 @@ import com.youtube.jwt.entity.Role;
 import com.youtube.jwt.entity.User;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -17,8 +18,11 @@ public class RoleService {
     @Autowired
     private RoleDao roleDao;
 
-    public Role createNewRole(Role role) {
-        return roleDao.save(role);
+    public List<Role> createNewRole(Role role) {
+        roleDao.save(role);
+        Iterable<Role> rolesIterable = roleDao.findAll();
+        return StreamSupport.stream(rolesIterable.spliterator(), false)
+                .collect(Collectors.toList());
     }
 
     public List<Role> getRoles() {
@@ -26,5 +30,19 @@ public class RoleService {
         return StreamSupport.stream(rolesIterable.spliterator(), false)
                 .collect(Collectors.toList());
 
+    }
+
+    public Iterable<Role> updateRole(Role role) {
+        Optional<Role> roleTmp = roleDao.findById(role.getRoleName());
+        if (roleTmp.isPresent()) {
+            Role existingRole = roleTmp.get();
+            existingRole.setRoleDescription(role.getRoleDescription());
+
+            roleDao.save(existingRole);
+            return roleDao.findAll();
+        } else {
+
+            return null;
+        }
     }
 }

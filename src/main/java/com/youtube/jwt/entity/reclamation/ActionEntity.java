@@ -1,5 +1,9 @@
 package com.youtube.jwt.entity.reclamation;
+
+import java.util.Date;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -29,8 +33,13 @@ public class ActionEntity {
     @Column(nullable = false)
     private String description;
 
+    @NotNull(message = "Creation date is required")
+    private Date dateCreation;
+
+    private Date dateUpdate;
+
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "reclamation_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private ReclamationEntity reclamationEntity;

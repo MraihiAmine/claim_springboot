@@ -8,12 +8,14 @@ import org.springframework.stereotype.Service;
 import com.youtube.jwt.entity.reclamation.ActionEntity;
 import com.youtube.jwt.entity.reclamation.ReclamationEntity;
 import com.youtube.jwt.entity.reclamation.StateEstablishment;
+import com.youtube.jwt.util.exception.NotFoundException;
 import com.youtube.jwt.util.reclamation.ActionRepository;
 import com.youtube.jwt.util.reclamation.ReclamationRepository;
 import com.youtube.jwt.util.reclamation.StateEstablishmentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import java.util.Optional;
 
 @Service
 public class ReclamationService {
@@ -76,5 +78,16 @@ public class ReclamationService {
 
         // Save the updated entity to the database
         return reclamationRepository.save(existingReclamation);
+    }
+
+    public void deleteReclamation(Long reclamationId) {
+        Optional<ReclamationEntity> reclamationOptional = reclamationRepository.findById(reclamationId);
+        if (reclamationOptional.isPresent()) {
+            ReclamationEntity reclamation = reclamationOptional.get();
+            // You may perform additional checks or operations before deleting
+            reclamationRepository.delete(reclamation);
+        } else {
+            throw new NotFoundException("Reclamation with ID " + reclamationId + " not found");
+        }
     }
 }

@@ -27,6 +27,13 @@
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/claim"
+        },
+        {
+          "id": "data_management.action",
+          "title": "Actions",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/action"
         }
       ]
     }
@@ -91,6 +98,13 @@
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/claim"
+        },
+        {
+          "id": "data_management.action",
+          "title": "Actions",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/action"
         }
       ],
       "roles": ["admin"]
@@ -185,6 +199,13 @@
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/claim"
+        },
+        {
+          "id": "data_management.action",
+          "title": "Actions",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/action"
         },
         {
           "id": "data_management.startupStaff",
@@ -1345,10 +1366,16 @@
         },
         {
           "id": "data_management.claim",
-          "title": "claim",
+          "title": "Reclamation",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check"
+        },
+        {
+          "id": "data_management.action",
+          "title": "Actions",
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
-          "link": "/dashboards/claim"
+          "link": "/dashboards/action"
         },
         {
           "id": "data_management.startupStaff",

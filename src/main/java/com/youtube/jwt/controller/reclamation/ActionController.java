@@ -26,12 +26,12 @@ public class ActionController {
         this.actionService = actionService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public List<ActionEntity> getAllActions() {
         return actionService.getAllActions();
     }
 
-    @PostMapping
+    @PostMapping("addAction")
     public ResponseEntity<ActionEntity> createAction(@RequestBody ActionEntity action) {
         System.out.println("entered in the save action");
         ActionEntity savedAction = actionService.createAction(action);
@@ -48,7 +48,7 @@ public class ActionController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("updateAction/{id}")
     public ResponseEntity<ActionEntity> updateAction(
             @PathVariable Long id,
             @RequestBody ActionUpdateRequest actionUpdateRequest) {

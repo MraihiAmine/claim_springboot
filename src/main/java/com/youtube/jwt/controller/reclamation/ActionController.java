@@ -65,7 +65,7 @@ public class ActionController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("deleteAction/{id}")
     public ResponseEntity<Void> deleteAction(@PathVariable Long id) {
         ActionEntity existingAction = actionService.getActionById(id);
         if (existingAction != null) {

@@ -1,6 +1,6 @@
 package com.youtube.jwt.controller.reclamation;
 
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.youtube.jwt.entity.reclamation.StateEstablishment;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/state-establishments")
+@RequestMapping("/etablissements")
 public class StateEstablishmentController {
 
     private final StateEstablishmentService stateEstablishmentService;
@@ -19,7 +19,7 @@ public class StateEstablishmentController {
         this.stateEstablishmentService = stateEstablishmentService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public List<StateEstablishment> getAllStateEstablishments() {
         return stateEstablishmentService.getAllStateEstablishments();
     }
@@ -29,19 +29,23 @@ public class StateEstablishmentController {
         return stateEstablishmentService.getStateEstablishmentById(id);
     }
 
-    @PostMapping
-    public StateEstablishment createStateEstablishment(@RequestBody StateEstablishment stateEstablishment) {
-        return stateEstablishmentService.createStateEstablishment(stateEstablishment);
+    @PostMapping("addEtablissement")
+    public ResponseEntity<StateEstablishment> createStateEstablishment(
+            @RequestBody StateEstablishment stateEstablishment) {
+        StateEstablishment SavedstateEstablishment = stateEstablishmentService
+                .createStateEstablishment(stateEstablishment);
+        return ResponseEntity.ok(SavedstateEstablishment);
+
     }
 
-    @PutMapping("/{id}")
-    public StateEstablishment updateStateEstablishment(@PathVariable Long id, @RequestBody StateEstablishment updatedStateEstablishment) {
+    @PutMapping("updateEtablissement/{id}")
+    public StateEstablishment updateStateEstablishment(@PathVariable Long id,
+            @RequestBody StateEstablishment updatedStateEstablishment) {
         return stateEstablishmentService.updateStateEstablishment(id, updatedStateEstablishment);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("deleteEtablissement/{id}")
     public void deleteStateEstablishment(@PathVariable Long id) {
         stateEstablishmentService.deleteStateEstablishment(id);
     }
 }
-

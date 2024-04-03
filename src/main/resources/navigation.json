@@ -23,7 +23,7 @@
         },
         {
           "id": "data_management.claim",
-          "title": "claim",
+          "title": "Reclamation",
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/claim"
@@ -34,6 +34,13 @@
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/action"
+        },
+        {
+          "id": "data_management.etablissement",
+          "title": "Etablissement",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/etablissement"
         }
       ]
     }
@@ -94,7 +101,7 @@
         },
         {
           "id": "data_management.claim",
-          "title": "claim",
+          "title": "Reclamation",
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/claim"
@@ -105,6 +112,13 @@
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/action"
+        },
+        {
+          "id": "data_manetablissementt.etablissement",
+          "title": "Etablissement",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/etablissement"
         }
       ],
       "roles": ["admin"]
@@ -195,7 +209,7 @@
         },
         {
           "id": "data_management.claim",
-          "title": "claim",
+          "title": "Reclamation",
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/claim"
@@ -206,6 +220,13 @@
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/action"
+        },
+        {
+          "id": "data_management.etablissement",
+          "title": "Actions",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/etablissement"
         },
         {
           "id": "data_management.startupStaff",
@@ -1376,6 +1397,13 @@
           "type": "basic",
           "icon": "heroicons_outline:clipboard-document-check",
           "link": "/dashboards/action"
+        },
+        {
+          "id": "data_management.etablissement",
+          "title": "Etablissement",
+          "type": "basic",
+          "icon": "heroicons_outline:clipboard-document-check",
+          "link": "/dashboards/etablissement"
         },
         {
           "id": "data_management.startupStaff",
